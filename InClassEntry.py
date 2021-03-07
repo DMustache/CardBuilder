@@ -48,44 +48,124 @@ class App(Tk):
         self.resizable(False, False)
         self.title('InClass')
 
-        self.btn = Button(self, text='Подключиться', command=self._activate_connection_win)
-        self.btn.grid(row=0, sticky=E)
+        self.buttonConnect = Button(self, text='Подключиться', command=self._activate_connection_win)
+        self.buttonConnect.grid(row=0, sticky=E)
+
 
         #!org
-        self.labelORG = Button(self, text='Предприятие')
+        self.labelORG = Label(self, text='Предприятие')
         self.labelORG.grid(row=1, sticky=E)
 
         self.stringORG = StringVar()
         self.entryORG = Entry(self, textvariable=self.stringORG)
         self.entryORG.grid(row=1, column=1, columnspan=2)
 
-        self.buttonORG = Button(self, text='Выбрать:', command=self._select_CSV_table(self.stringORG, self.entryORG))
-        self.buttonORG.grid(row=1, col=3)
+        self.buttonORG = Button(self, text='Выбрать', command=lambda:self.stringORG.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonORG.grid(row=1, column=3)
 
         #!org_rooms
+        self.labelORG_ROOMS = Label(self, text='Предприятие')
+        self.labelORG_ROOMS.grid(row=1, sticky=E)
+
+        self.stringORG_ROOMS = StringVar()
+        self.entryORG_ROOMS = Entry(self, textvariable=self.stringORG_ROOMS)
+        self.entryORG_ROOMS.grid(row=1, column=1, columnspan=2)
+
+        self.buttonORG_ROOMS = Button(self, text='Выбрать', command=lambda:self.stringORG_ROOMS.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonORG_ROOMS.grid(row=1, column=3)
+
         #!room
+        self.labelROOM = Label(self, text='Комнаты')
+        self.labelROOM.grid(row=3, sticky=E)
+
+        self.stringROOM = StringVar()
+        self.entryROOM = Entry(self, textvariable=self.stringROOM)
+        self.entryROOM.grid(row=3, column=1, columnspan=2)
+
+        self.buttonROOM = Button(self, text='Выбрать', command=lambda:self.stringROOM.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonROOM.grid(row=3, column=3)
+
         #!event_types
+        self.labelEVENT_TYPES = Label(self, text='Типы Занятий')
+        self.labelEVENT_TYPES.grid(row=4, sticky=E)
+
+        self.stringEVENT_TYPES = StringVar()
+        self.entryEVENT_TYPES = Entry(self, textvariable=self.stringEVENT_TYPES)
+        self.entryEVENT_TYPES.grid(row=4, column=1, columnspan=2)
+
+        self.buttonEVENT_TYPES = Button(self, text='Выбрать', command=lambda:self.stringEVENT_TYPES.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonEVENT_TYPES.grid(row=4, column=3)
+
         #!groups
+        self.labelGROUPS = Label(self, text='Группы')
+        self.labelGROUPS.grid(row=5, sticky=E)
+
+        self.stringGROUPS = StringVar()
+        self.entryGROUPS = Entry(self, textvariable=self.stringGROUPS)
+        self.entryGROUPS.grid(row=5, column=1, columnspan=2)
+
+        self.buttonGROUPS = Button(self, text='Выбрать', command=lambda:self.stringGROUPS.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonGROUPS.grid(row=5, column=3)
+
         #!events
+        self.labelEVENTS = Label(self, text='Занятия')
+        self.labelEVENTS.grid(row=6, sticky=E)
+
+        self.stringEVENTS = StringVar()
+        self.entryEVENTS = Entry(self, textvariable=self.stringEVENTS)
+        self.entryEVENTS.grid(row=6, column=1, columnspan=2)
+
+        self.buttonEVENTS = Button(self, text='Выбрать', command=lambda:self.stringEVENTS.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonEVENTS.grid(row=6, column=3)
+
         #!slots
+        self.labelSLOTS = Label(self, text='Слоты')
+        self.labelSLOTS.grid(row=7, sticky=E)
+
+        self.stringSLOTS = StringVar()
+        self.entrySLOTS = Entry(self, textvariable=self.stringSLOTS)
+        self.entrySLOTS.grid(row=7, column=1, columnspan=2)
+
+        self.buttonSLOTS = Button(self, text='Выбрать', command=lambda:self.stringSLOTS.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonSLOTS.grid(row=7, column=3)
+
         #!slot_template
+        self.labelSLOT_TEMPLATE = Label(self, text='Временный слоты')
+        self.labelSLOT_TEMPLATE.grid(row=8, sticky=E)
+
+        self.stringSLOT_TEMPLATE = StringVar()
+        self.entrySLOT_TEMPLATE = Entry(self, textvariable=self.stringSLOT_TEMPLATE)
+        self.entrySLOT_TEMPLATE.grid(row=8, column=1, columnspan=2)
+
+        self.buttonSLOT_TEMPLATE = Button(self, text='Выбрать', command=lambda:self.stringSLOT_TEMPLATE.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonSLOT_TEMPLATE.grid(row=8, column=3)
+
         #!participation
+        self.labelPARTICIPATION = Label(self, text='Рассписание')
+        self.labelPARTICIPATION.grid(row=9, sticky=E)
+
+        self.stringPARTICIPATION = StringVar()
+        self.entryPARTICIPATION = Entry(self, textvariable=self.stringPARTICIPATION)
+        self.entryPARTICIPATION.grid(row=9, column=1, columnspan=2)
+
+        self.buttonPARTICIPATION = Button(self, text='Выбрать', command=lambda:self.stringPARTICIPATION.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonPARTICIPATION.grid(row=9, column=3)
 
     def _activate_connection_win(self):
         connection = ConnectionWindow(self)
         connection.grab_set()
 
-    def _select_CSV_table(path, entry_el):
-        path = askopenfilename(filetype=(('CSV file', '*.csv'), ('Any', '*')))
+    def _select_CSV_table(CSV_path, entry_el):
+        CSV_path = askopenfilename(filetype=(('CSV file', '*.csv'), ('Any', '*')))
         entry_el.delete(0, END)
-        entry_el.insert(0, path)
-        print(path)
+        entry_el.insert(0, CSV_path)
+        print(CSV_path)
 
     #!org
-    def _send_org(org_path):
+    def _send_org(org_CSV_path):
         conn = ConnectionWindow._login_btn_clicked.conn()
 
-        data = pandas.read_csv(org_path, sep=';', encoding='utf-8')
+        data = pandas.read_csv(org_CSV_path, sep=';', encoding='utf-8')
         df = pandas.DataFrame(data, columns=['org_id', 'org_description', 'parent_org'])
         org_cursor = conn.cursor()
 
@@ -102,10 +182,10 @@ class App(Tk):
         conn.commit()
 
     #!org_rooms
-    def _send_org_rooms(org_rooms_path):
+    def _send_org_rooms(org_rooms_CSV_path):
         conn = ConnectionWindow._login_btn_clicked.conn()
 
-        data = pandas.read_csv(org_rooms_path, sep=';', encoding='utf-8')
+        data = pandas.read_csv(org_rooms_CSV_path, sep=';', encoding='utf-8')
         df = pandas.DataFrame(data, columns=['rooms_id', 'org', 'room'])
         org_rooms_cursor = conn.cursor()
 
@@ -122,10 +202,10 @@ class App(Tk):
         conn.commit()
 
     #!room
-    def _send_room(room_path):
+    def _send_room(room_CSV_path):
         conn = ConnectionWindow._login_btn_clicked.conn()
 
-        data = pandas.read_csv(room_path, sep=';', encoding='utf-8')
+        data = pandas.read_csv(room_CSV_path, sep=';', encoding='utf-8')
         df = pandas.DataFrame(data, columns=['room_id', 'room_description', 'room_size'])
         room_cursor = conn.cursor()
 
@@ -142,10 +222,10 @@ class App(Tk):
         conn.commit()
 
     #!event_types
-    def _send_event_types(event_types_path):
+    def _send_event_types(event_types_CSV_path):
         conn = ConnectionWindow._login_btn_clicked.conn()
 
-        data = pandas.read_csv(event_types_path, sep=';', encoding='utf-8')
+        data = pandas.read_csv(event_types_CSV_path, sep=';', encoding='utf-8')
         df = pandas.DataFrame(data, columns=['event_type_id', 'event_type', 'event_media'])
         event_types_cursor = conn.cursor()
 
@@ -162,10 +242,10 @@ class App(Tk):
         conn.commit()
 
     #!groups
-    def _send_groups(groups_path):
+    def _send_groups(groups_CSV_path):
         conn = ConnectionWindow._login_btn_clicked.conn()
 
-        data = pandas.read_csv(groups_path, sep=';', encoding='utf-8')
+        data = pandas.read_csv(groups_CSV_path, sep=';', encoding='utf-8')
         df = pandas.DataFrame(data, columns=['group_id', 'groups_description', 'group_size'])
         groups_cursor = conn.cursor()
 
@@ -182,10 +262,10 @@ class App(Tk):
         conn.commit()
 
     #!events
-    def _send_events(events_path):
+    def _send_events(events_CSV_path):
         conn = ConnectionWindow._login_btn_clicked.conn()
 
-        data = pandas.read_csv(events_path, sep=';', encoding='utf-8')
+        data = pandas.read_csv(events_CSV_path, sep=';', encoding='utf-8')
         df = pandas.DataFrame(data, columns=['event_id', 'event_type', 'datetime'])
         events_cursor = conn.cursor()
 
@@ -202,10 +282,10 @@ class App(Tk):
         conn.commit()
 
     #!slots
-    def _send_slots(slots_path):
+    def _send_slots(slots_CSV_path):
         conn = ConnectionWindow._login_btn_clicked.conn()
 
-        data = pandas.read_csv(slots_path, sep=';', encoding='utf-8')
+        data = pandas.read_csv(slots_CSV_path, sep=';', encoding='utf-8')
         df = pandas.DataFrame(data, columns=['slot_id', 'room', 'datetime'])
         slots_cursor = conn.cursor()
 
@@ -222,10 +302,10 @@ class App(Tk):
         conn.commit()
 
     #!slot_template
-    def _send_org(slot_template_path):
+    def _send_org(slot_template_CSV_path):
         conn = ConnectionWindow._login_btn_clicked.conn()
 
-        data = pandas.read_csv(slot_template_path, sep=';', encoding='utf-8')
+        data = pandas.read_csv(slot_template_CSV_path, sep=';', encoding='utf-8')
         df = pandas.DataFrame(data, columns=['slot_template_id', 'slot_template_start', 'time', 'period'])
         slot_template_cursor = conn.cursor()
 
@@ -243,10 +323,10 @@ class App(Tk):
         conn.commit()
 
     #!participation
-    def _send_org(participation_path):
+    def _send_org(participation_CSV_path):
         conn = ConnectionWindow._login_btn_clicked.conn()
 
-        data = pandas.read_csv(participation_path, sep=';', encoding='utf-8')
+        data = pandas.read_csv(participation_CSV_path, sep=';', encoding='utf-8')
         df = pandas.DataFrame(data, columns=['participation_id', 'event', 'group'])
         participation_cursor = conn.cursor()
 
