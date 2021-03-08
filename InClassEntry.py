@@ -1,8 +1,9 @@
 import pandas
-from tkinter import Entry, Label, StringVar, Tk, Toplevel, Button
+from tkinter import Entry, Label, PhotoImage, StringVar, Tk, Toplevel, Button
 from tkinter.constants import E, END
 from tkinter.messagebox import showerror, showinfo
 from tkinter.filedialog import askopenfilename
+from os.path import abspath
 import pyodbc
 
 class ConnectionWindow(Toplevel):
@@ -47,6 +48,7 @@ class App(Tk):
         super().__init__()
         self.resizable(False, False)
         self.title('InClass')
+        #self.iconphoto(True, PhotoImage(file='path')) #TODO set icon path
 
         self.buttonConnect = Button(self, text='Подключиться', command=self._activate_connection_win)
         self.buttonConnect.grid(row=0, sticky=E)
@@ -150,6 +152,9 @@ class App(Tk):
 
         self.buttonPARTICIPATION = Button(self, text='Выбрать', command=lambda:self.stringPARTICIPATION.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
         self.buttonPARTICIPATION.grid(row=9, column=3)
+
+        self.buttonSend = Button(self, text='Отправить файлы', command=self.sendFiles)
+        self.buttonSend.grid(row=10, sticky=E)
 
     def _activate_connection_win(self):
         connection = ConnectionWindow(self)
@@ -341,6 +346,24 @@ class App(Tk):
             row.group
             )
         conn.commit()
+
+    def sendFiles(self):
+        try:
+            self._send_org(self.stringORG.get())
+            self._send_org_rooms(self.stringORG_ROOMS.get())
+            self._send_room(self.stringROOM.get())
+            self._send_event_types(self.stringEVENT_TYPES.get())
+            self._send_groups(self.stringGROUPS.get())
+            self._send_events(self.stringEVENTS.get())
+            self._send_slots(self.stringSLOTS.get())
+
+        except Exception:
+            self.connException = showerror('Обишка', 'Введите правильные данные')
+            #logsPath = abspath(r'logs.log')
+            #f = open('logs.log', 'a', encoding='utf-8')
+            #f.write(Exception)
+            #f.close()
+
 
 if __name__ == '__main__':
     app = App()
