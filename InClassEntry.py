@@ -53,7 +53,6 @@ class App(Tk):
         self.buttonConnect = Button(self, text='Подключиться', command=self._activate_connection_win)
         self.buttonConnect.grid(row=0, sticky=E)
 
-
         #!org
         self.labelORG = Label(self, text='Предприятие')
         self.labelORG.grid(row=1, sticky=E)
@@ -62,7 +61,7 @@ class App(Tk):
         self.entryORG = Entry(self, textvariable=self.stringORG)
         self.entryORG.grid(row=1, column=1, columnspan=2)
 
-        self.buttonORG = Button(self, text='Выбрать', command=lambda:self.stringORG.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonORG = Button(self, text='Выбрать', command=lambda:self.stringORG.set(askopenfilename()))
         self.buttonORG.grid(row=1, column=3)
 
         #!org_rooms
@@ -73,7 +72,7 @@ class App(Tk):
         self.entryORG_ROOMS = Entry(self, textvariable=self.stringORG_ROOMS)
         self.entryORG_ROOMS.grid(row=1, column=1, columnspan=2)
 
-        self.buttonORG_ROOMS = Button(self, text='Выбрать', command=lambda:self.stringORG_ROOMS.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonORG_ROOMS = Button(self, text='Выбрать', command=lambda:self.stringORG_ROOMS.set(askopenfilename()))
         self.buttonORG_ROOMS.grid(row=1, column=3)
 
         #!room
@@ -84,7 +83,7 @@ class App(Tk):
         self.entryROOM = Entry(self, textvariable=self.stringROOM)
         self.entryROOM.grid(row=3, column=1, columnspan=2)
 
-        self.buttonROOM = Button(self, text='Выбрать', command=lambda:self.stringROOM.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonROOM = Button(self, text='Выбрать', command=lambda:self.stringROOM.set(askopenfilename()))
         self.buttonROOM.grid(row=3, column=3)
 
         #!event_types
@@ -95,7 +94,7 @@ class App(Tk):
         self.entryEVENT_TYPES = Entry(self, textvariable=self.stringEVENT_TYPES)
         self.entryEVENT_TYPES.grid(row=4, column=1, columnspan=2)
 
-        self.buttonEVENT_TYPES = Button(self, text='Выбрать', command=lambda:self.stringEVENT_TYPES.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonEVENT_TYPES = Button(self, text='Выбрать', command=lambda:self.stringEVENT_TYPES.set(askopenfilename()))
         self.buttonEVENT_TYPES.grid(row=4, column=3)
 
         #!groups
@@ -106,7 +105,7 @@ class App(Tk):
         self.entryGROUPS = Entry(self, textvariable=self.stringGROUPS)
         self.entryGROUPS.grid(row=5, column=1, columnspan=2)
 
-        self.buttonGROUPS = Button(self, text='Выбрать', command=lambda:self.stringGROUPS.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonGROUPS = Button(self, text='Выбрать', command=lambda:self.stringGROUPS.set(askopenfilename()))
         self.buttonGROUPS.grid(row=5, column=3)
 
         #!events
@@ -117,7 +116,7 @@ class App(Tk):
         self.entryEVENTS = Entry(self, textvariable=self.stringEVENTS)
         self.entryEVENTS.grid(row=6, column=1, columnspan=2)
 
-        self.buttonEVENTS = Button(self, text='Выбрать', command=lambda:self.stringEVENTS.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonEVENTS = Button(self, text='Выбрать', command=lambda:self.stringEVENTS.set(askopenfilename()))
         self.buttonEVENTS.grid(row=6, column=3)
 
         #!slots
@@ -128,7 +127,7 @@ class App(Tk):
         self.entrySLOTS = Entry(self, textvariable=self.stringSLOTS)
         self.entrySLOTS.grid(row=7, column=1, columnspan=2)
 
-        self.buttonSLOTS = Button(self, text='Выбрать', command=lambda:self.stringSLOTS.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonSLOTS = Button(self, text='Выбрать', command=lambda:self.stringSLOTS.set(askopenfilename()))
         self.buttonSLOTS.grid(row=7, column=3)
 
         #!slot_template
@@ -139,7 +138,7 @@ class App(Tk):
         self.entrySLOT_TEMPLATE = Entry(self, textvariable=self.stringSLOT_TEMPLATE)
         self.entrySLOT_TEMPLATE.grid(row=8, column=1, columnspan=2)
 
-        self.buttonSLOT_TEMPLATE = Button(self, text='Выбрать', command=lambda:self.stringSLOT_TEMPLATE.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonSLOT_TEMPLATE = Button(self, text='Выбрать', command=lambda:self.stringSLOT_TEMPLATE.set(askopenfilename()))
         self.buttonSLOT_TEMPLATE.grid(row=8, column=3)
 
         #!participation
@@ -150,7 +149,7 @@ class App(Tk):
         self.entryPARTICIPATION = Entry(self, textvariable=self.stringPARTICIPATION)
         self.entryPARTICIPATION.grid(row=9, column=1, columnspan=2)
 
-        self.buttonPARTICIPATION = Button(self, text='Выбрать', command=lambda:self.stringPARTICIPATION.set(askopenfilename(filetypes=(('CSV file', '*.csv')))))
+        self.buttonPARTICIPATION = Button(self, text='Выбрать', command=lambda:self.stringPARTICIPATION.set(askopenfilename()))
         self.buttonPARTICIPATION.grid(row=9, column=3)
 
         self.buttonSend = Button(self, text='Отправить файлы', command=self.sendFiles)
